@@ -1,0 +1,3 @@
+interface:
+  display_name: "Security Audit (15대 보안통제)"
+  short_description: "정부 보안권고 15대 보안통제 기준으로 저장소를 점검해 점검표 기재용 결과를 만든다"
