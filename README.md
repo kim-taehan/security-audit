@@ -7,9 +7,42 @@
 
 ### Claude Code (플러그인)
 
+**1. 마켓플레이스 등록 → 2. 플러그인 설치** 두 단계다. Claude Code 세션 안에서:
+
 ```
 /plugin marketplace add kim-taehan/security-audit
 /plugin install security-audit@security-audit
+```
+
+설치 후 Claude Code를 재시작(또는 `/reload-plugins`)하면 `/security-audit` 스킬이 보인다. `/plugin` 메뉴의 Installed 탭에서 설치 여부를 확인할 수 있다.
+
+터미널에서 바로 설치하려면:
+
+```bash
+claude plugin marketplace add kim-taehan/security-audit
+claude plugin install security-audit@security-audit
+```
+
+**업데이트 / 삭제**
+
+```
+/plugin marketplace update security-audit
+/plugin uninstall security-audit@security-audit
+```
+
+**팀 프로젝트에 기본 등록** — 저장소의 `.claude/settings.json`에 넣어 두면 팀원이 그 프로젝트를 열 때 설치 안내가 뜬다:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "security-audit": {
+      "source": { "source": "github", "repo": "kim-taehan/security-audit" }
+    }
+  },
+  "enabledPlugins": {
+    "security-audit@security-audit": true
+  }
+}
 ```
 
 ### Codex (스킬)
